@@ -51,7 +51,9 @@ demo页地址：http://codepen.io/XXXXat/pen/JWoJGr
 * 将`border-radius`设置为正方形div的长度的一半可得到原型或者圆弧。
 * 将两个半圆拼凑成一个正圆。
 * 设置`width`和`height`设置为0，设置`border-width`和`border-radius`为圆的半径，通过设置每条border的颜色可以改变每个直角扇形的颜色，同理可以组合形成半圆、270°扇形。例如为一个div设置css样式如下：
-···
+
+```
+
 #div{
   width: 0;
   height: 0;
@@ -62,7 +64,8 @@ demo页地址：http://codepen.io/XXXXat/pen/JWoJGr
   border-bottom-color: dodgerblue;
   border-left-color: royalblue;
 }
-···
+
+```
 则有如下效果：
 
 * 通过`clip-path`可产生圆形、以矩形的四边为直径的半圆、以矩形的四边为弦的弓形。
