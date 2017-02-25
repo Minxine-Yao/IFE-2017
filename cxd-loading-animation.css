@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#container{
+    width: 300px;
+    height: 300px;
+    margin-left: calc( 50vw - 150px);
+    margin-top: calc( 50vh - 150px);
+    position: absolute;
+}
+
+/*外层圆弧*/
+@keyframes rotation{
+    from {transform: rotate(0deg);}
+    to {transform: rotate(-360deg);}
+}
+.three-quarters-circle{
+    position: absolute;
+    left: 80px;
+    top: 80px;
+
+    box-sizing: border-box;
+    width: 140px;
+    height: 140px;
+    border: 2px solid rgb(255,41,140);
+    border-radius: 70px;
+    border-top-color: transparent;
+    background-color: transparent;
+
+    animation: rotation 0.8s linear infinite;
+}
+
+.full-circle{
+    width: 0;
+    height: 0;
+    border-radius: 100px;
+    transform: rotate(45deg);
+    border: 50px solid rgb(255,41,140);
+    border-right-color: rgb(251,139,189);
+    border-top-color: rgb(251,139,189);
+
+    position: absolute;
+    left: 100px;
+    top: 100px;
+}
+/*内层半圆*/
+@keyframes showLeft{
+    from {transform: rotate(45deg);}
+    25% {transform: rotate(-135deg);} /*开始等待*/
+    50% {transform: rotate(-135deg);} 
+    75% {transform: rotate(-315deg);} /*开始等待*/
+    to {transform: rotate(-315deg);}
+}
+@keyframes showRight{
+    from {transform: rotate(45deg);z-index: 6;}
+    25% {transform: rotate(-135deg);} /*开始等待*/
+    50% {transform: rotate(-135deg);z-index: 6;} 
+    50.001% {transform: rotate(-135deg);z-index: 5;} 
+    75% {transform: rotate(-315deg);z-index: 5;} 
+    99.999% {transform: rotate(-315deg);z-index: 5;} 
+    to {transform: rotate(-315deg);z-index: 6}
+}
+.two-quarters-circle{
+    width: 0;
+    height: 0;
+    border: 50px solid transparent;
+    border-radius: 100px;
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    transform: rotate(45deg);
+}
+#half-left{
+    border-left-color: rgb(251,139,189);
+    border-bottom-color: rgb(251,139,189);
+    animation: showLeft 2s linear infinite;
+    z-index: 6;
+}
+#half-right{
+    border-bottom-color: rgb(255,41,140);
+    border-left-color: rgb(255,41,140);
+    
+    animation: showRight 2s linear infinite;
+    animation-delay: 0.50s;
+    z-index: 5;
+}
