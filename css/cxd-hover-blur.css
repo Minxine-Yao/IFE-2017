@@ -1,0 +1,118 @@
+/*修改默认样式*/
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+
+#container{
+    width: 768px;
+    height: 432px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#text{
+    width: 461px;
+    height: 260px;
+    vertical-align: middle;
+
+    /*垂直水平居中*/
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+
+}
+
+#text-container{
+    width: 461px;
+    height: 260px;
+    display: table-cell;
+
+    text-align: center;
+    vertical-align: middle;
+    
+    font-family: Microsoft YaHei,Tahoma,sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+/*“欢迎”句流光效果*/
+@keyframes colorShift{
+    from {background-position: 200% 0;}
+    to {background-position: 0% 0;}
+}
+.text-color-shift{
+    background-repeat: repeat-x;
+    background-image: linear-gradient(to left,rebeccapurple 0%,rebeccapurple 30%,royalblue 48%,royalblue 52%,rebeccapurple 70%,rebeccapurple 100%);
+    background-size: 200% 100%;
+    background-position-x: 250%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: colorShift 1.5s infinite linear;
+}
+
+/*上升滑动进入效果*/
+#container:hover > .slide-up{
+    opacity: 1;
+    transform: translateY(-5px);
+}
+.slide-up{
+    opacity: 0;
+    transform: translateY(5px);
+    transition: opacity 0.3s,transform 0.3s;
+}
+
+/*边框伸展并连接到一起的效果*/
+.border-connect{
+    border: none;
+    position: relative;
+    z-index: 3;
+}
+.border-connect:before,.border-connect:after{
+    content:" ";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 4px solid white;
+    transition-property: width,height,left,top;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in;
+}
+.border-connect:before{
+    height: 100%;
+    left: 50%;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    z-index: -4;
+}
+#container:hover > .border-connect:before{
+    left: 0;
+    width: 100%;
+}
+.border-connect:after{
+    width: 100%;
+    top: 50%;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    z-index: -3;
+}
+#container:hover > .border-connect:after{
+    height: 100%;
+    top: 0;
+}
+
+/*图片模糊效果*/
+.hover-blur{
+    transition: filter,0.3s,ease-in;
+}
+#container:hover > .hover-blur{
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+}
