@@ -45,4 +45,30 @@
 两个盒子的位置如图所示，剩余的工作没有太多难点。惟一需要注意的地方是图示的边框动画是从中部向外延伸的，故两个盒的起始位置都应在对应边的中部，可以想象为呈“田”字状，也即最初负责上下两条边动画的盒的`left`应为50%，余者同理。
 
 demo页地址：http://codepen.io/XXXXat/pen/JWoJGr
-github：https://github.com/Minxine-Yao/IFE-2017
+
+## CCS3饼状Loading效果
+### 纯CSS实现圆形/半圆/弧形
+* 将`border-radius`设置为正方形div的长度的一半可得到原型或者圆弧。
+* 将两个半圆拼凑成一个正圆。
+* 设置`width`和`height`设置为0，设置`border-width`和`border-radius`为圆的半径，通过设置每条border的颜色可以改变每个直角扇形的颜色，同理可以组合形成半圆、270°扇形。例如为一个div设置css样式如下：
+···
+#div{
+  width: 0;
+  height: 0;
+  border: 100px solid;
+  border-radius: 100px;
+  border-top-color: lightgreen;
+  border-right-color: deepskyblue;
+  border-bottom-color: dodgerblue;
+  border-left-color: royalblue;
+}
+···
+则有如下效果：
+
+* 通过`clip-path`可产生圆形、以矩形的四边为直径的半圆、以矩形的四边为弦的弓形。
+* 通过设置盒的非对角的`border-radius`为所夹边长度的一半，则可得到以矩形的四边为直径的半圆。
+* 
+### Loading效果实现思路
+观察效果图得知，整体效果可以分为两部分，首先是外层的四分之三弧线的旋转，以及内层的较为复杂的旋转。
+由于弧长为圆周的3/4，则可采用前部分所述的第一种方法，设置某条边的`border-color`为`transparent`即可。旋转则使用CSS3 Animation配合`transform`即可。
+内层较为复杂的旋转可以分为三层效果来实现，最底层为一个正圆
