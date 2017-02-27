@@ -64,15 +64,26 @@ demo页地址：http://codepen.io/XXXXat/pen/JWoJGr
   border-bottom-color: dodgerblue;
   border-left-color: royalblue;
 }
-
 ```
 则有如下效果：
 
+![示意图](img/border_round.png)
+
 * 通过`clip-path`可产生圆形、以矩形的四边为直径的半圆、以矩形的四边为弦的弓形。
 * 通过设置盒的非对角的`border-radius`为所夹边长度的一半，则可得到以矩形的四边为直径的半圆。
-* 
+* ​
 
 ### Loading效果实现思路
 观察效果图得知，整体效果可以分为两部分，首先是外层的四分之三弧线的旋转，以及内层的较为复杂的旋转。
 由于弧长为圆周的3/4，则可采用前部分所述的第一种方法，设置某条边的`border-color`为`transparent`即可。旋转则使用CSS3 Animation配合`transform`即可。
-内层较为复杂的旋转可以分为三层效果来实现，最底层为一个正圆
+内层较为复杂的旋转可以分为两层效果来实现，最底层为一个如图所示的正圆：
+
+![](img/half_round.png)
+
+在其上有两个颜色各异的半圆在进行如图所示的旋转（单个周期）：
+
+![](img/half_LR.gif)
+
+即可实现示意图中的效果。
+
+* bug：在竖直方向上浅色半圆和底部完整的圆形会有一条1px的偏差无法调整，初步估计其中涉及到border的渲染机制，若关于此有任何建议，请不吝赐教。
