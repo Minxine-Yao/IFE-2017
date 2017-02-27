@@ -87,3 +87,4 @@ demo页地址：http://codepen.io/XXXXat/pen/JWoJGr
 即可实现示意图中的效果。
 
 * bug：在竖直方向上浅色半圆和底部完整的圆形会有一条1px的偏差无法调整，初步估计其中涉及到border的渲染机制，若关于此有任何建议，请不吝赐教。
+* DEMO：http://codepen.io/XXXXat/pen/dvPVeR
