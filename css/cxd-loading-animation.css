@@ -74,14 +74,14 @@
 #half-left{
     border-left-color: rgb(251,139,189);
     border-bottom-color: rgb(251,139,189);
-    animation: showLeft 2s linear;
+    animation: showLeft 2s linear infinite;
     z-index: 6;
 }
 #half-right{
     border-bottom-color: rgb(255,41,140);
     border-left-color: rgb(255,41,140);
     
-    animation: showRight 2s linear;
+    animation: showRight 2s linear infinite;
     animation-delay: 0.50s;
     z-index: 5;
 }
